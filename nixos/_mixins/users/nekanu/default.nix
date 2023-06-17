@@ -8,7 +8,7 @@ in
     ./packages-console.nix
   ] ++ lib.optional (builtins.isString desktop) ./packages-desktop.nix;
 
-  users.users.martin = {
+  users.users.nekanu = {
     description = "Nekanu";
     extraGroups = [
       "audio"

@@ -1,8 +1,9 @@
-{ hostid, hostname, lib, pkgs, ... }: {
+{ hostname, lib, pkgs, ... }: {
   imports = [
     ./locale.nix
     ./nano.nix
     ../services/fwupd.nix
+    ../services/virtualisation.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -29,8 +30,11 @@
   # Use passed in hostid and hostname to configure basic networking
   networking = {
     hostName = hostname;
-    hostId = hostid;
-    useDHCP = lib.mkDefault true;
+
+    networkmanager = {
+      enable = true;
+    };
+
     firewall = {
       enable = true;
     };
@@ -38,6 +42,12 @@
 
   programs = {
     dconf.enable = true;
+
+    zsh = {
+      enable = true;
+      enableCompletion = true;
+      enableAutoUpdate = true;
+    };
   };
 
   security.rtkit.enable = true;

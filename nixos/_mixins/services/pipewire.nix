@@ -1,5 +1,9 @@
 { config, pkgs, ... }:
 {
+  sound = {
+    enable = true;
+    mediaKeys.enable = true;
+  };
   hardware = {
     pulseaudio.enable = false;
   };
@@ -13,4 +17,5 @@
       wireplumber.enable = true;
     };
   };
+  security.rtkit.enable = true;
 }
