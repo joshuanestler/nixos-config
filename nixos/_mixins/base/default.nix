@@ -46,7 +46,9 @@
     zsh = {
       enable = true;
       enableCompletion = true;
-      enableAutoUpdate = true;
+      syntaxHighlighting.enable = true;
+      autosuggestions.enable = true;
+      enableBashCompletion = true;
     };
   };
 
