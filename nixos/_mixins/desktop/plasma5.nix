@@ -3,7 +3,6 @@
     ../services/networkmanager.nix
   ];
 
-  # Exclude the Epiphany browser
   environment = {
     plasma5.excludePackages = with pkgs.libsForQt5; [
       elisa
@@ -27,11 +26,7 @@
     xserver = {
       enable = true;
       displayManager = {
-        sddm = {
-          enable = true;
-          enableHidpi = true;
-          theme = "";
-        };
+        sddm.enable = true;
       };
 
       desktopManager = {

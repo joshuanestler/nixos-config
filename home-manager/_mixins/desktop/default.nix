@@ -3,6 +3,12 @@
     (./. + "/${desktop}.nix")
   ];
 
+  environment.systemPackages = with pkgs; [
+    vscode
+    texlive.combined.scheme-full
+    libreoffice
+  ];
+
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" "UbuntuMono" ]; })

@@ -12,25 +12,25 @@
 
   fileSystems."/" =
     {
-      device = "/dev/nvme1n1p3";
+      device = "/dev/disk/by-uuid/c439f160-7d81-4451-95ca-d5ed2e23b27e";
       fsType = "btrfs";
       options = [ "subvol=@" ];
     };
 
   fileSystems."/boot" =
     {
-      device = "/dev/nvme1n1p1";
+      device = "/dev/disk/by-uuid/BBB7-080C";
       fsType = "vfat";
     };
 
   fileSystems."/home" =
     {
-      device = "/dev/nvme1n1p4";
+      device = "/dev/disk/by-uuid/96fada13-08ff-42c1-8588-faf12d73ee78";
       fsType = "btrfs";
     };
 
   swapDevices =
-    [{ device = "/dev/nvme1n1p2"; }];
+    [{ device = "/dev/disk/by-uuid/a436904d-c048-4f70-b1e7-bfb8de7ec825"; }];
 
   hardware = {
 
@@ -39,7 +39,7 @@
       modesetting.enable = true;
 
       prime = {
-        offload.enable = true;
+        offload.enable = false;
         intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
       };
@@ -57,5 +57,8 @@
     ];
   };
 
+  networking.useDHCP = lib.mkDefault true;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
