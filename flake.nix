@@ -33,6 +33,7 @@
         "x86_64-darwin"
       ];
       stateVersion = "23.05";
+      rootPath = ./.;
     in
     rec {
       # Your custom packages
@@ -72,7 +73,7 @@
         "nekanu@harmony" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
           extraSpecialArgs = {
-            inherit inputs outputs stateVersion;
+            inherit inputs outputs stateVersion rootPath;
             desktop = "plasma5";
             hostname = "harmony";
             username = "nekanu";

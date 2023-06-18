@@ -1,4 +1,4 @@
-{ config, desktop, lib, pkgs, ... }: {
+{ config, desktop, lib, pkgs, rootPath, ... }: {
   imports = [
     (./. + "/${desktop}.nix")
   ];
@@ -9,7 +9,7 @@
     work-sans
     joypixels
     ubuntu_font_family
-    vscode
+    unstable.vscode
     texlive.combined.scheme-full
     libreoffice
   ];
@@ -53,6 +53,14 @@
     "XTerm.termName" = "xterm-256color";
     "XTerm*locale" = false;
     "XTerm*utf8" = true;
+  };
+
+  home.file."scripts/flatpak" = {
+    enable = true;
+    executable = true;
+    onChange = "bash $HOME/scripts/flatpak.sh";
+    target = "scripts/flatpak.sh";
+    source = rootPath + "/scripts/flatpak.sh";
   };
 }
 

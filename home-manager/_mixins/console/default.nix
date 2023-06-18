@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   imports = [
-    ./zsh.nix
+    ./fish.nix
     ./git.nix
     ./xdg.nix
   ];
@@ -26,6 +26,7 @@
     atuin = {
       enableBashIntegration = true;
       enableZshIntegration = true;
+      enableFishIntegration = true;
     };
     bat = {
       enable = true;
@@ -39,10 +40,12 @@
       enable = true;
       enableBashIntegration = true;
       enableZshIntegration = true;
+      enableFishIntegration = true;
     };
     direnv = {
       enable = true;
       enableBashIntegration = true;
+      enableFishIntegration = true;
       nix-direnv = {
         enable = true;
       };
@@ -68,6 +71,7 @@
       enable = true;
       enableBashIntegration = true;
       enableZshIntegration = true;
+      enableFishIntegration = true;
     };
   };
 
