@@ -3,18 +3,15 @@
     (./. + "/${desktop}.nix")
   ];
 
-  environment.systemPackages = with pkgs; [
-    vscode
-    texlive.combined.scheme-full
-    libreoffice
-  ];
-
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" "UbuntuMono" ]; })
     work-sans
     joypixels
     ubuntu_font_family
+    vscode
+    texlive.combined.scheme-full
+    libreoffice
   ];
   # Accept the joypixels license
   nixpkgs.config.joypixels.acceptLicense = true;
