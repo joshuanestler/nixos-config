@@ -6,7 +6,7 @@
     (./. + "/${desktop}.nix")
   ];
 
-  boot.kernelParams = [ "quiet" ];
+  # boot.kernelParams = [ "quiet" ];
   # boot.plymouth.enable = true;
 
   fonts = {

@@ -1,4 +1,4 @@
-{ config, desktop, pkgs, ... }: {
+{ config, desktop, lib, pkgs, ... }: {
   imports = [
     (./. + "/${desktop}.nix")
   ];
@@ -15,19 +15,6 @@
   ];
   # Accept the joypixels license
   nixpkgs.config.joypixels.acceptLicense = true;
-
-  home.file = {
-    "${config.xdg.configHome}/autostart/enable-flathub.desktop".text = "
-[Desktop Entry]
-Name=Enable Flathub
-Comment=Enable Flathub
-Type=Application
-Exec=flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-Categories=
-Terminal=false
-NoDisplay=true
-StartupNotify=false";
-  };
 
   xresources.properties = {
     "XTerm*background" = "#121214";
@@ -66,5 +53,12 @@ StartupNotify=false";
     "XTerm.termName" = "xterm-256color";
     "XTerm*locale" = false;
     "XTerm*utf8" = true;
+  };
+
+  # Run ../scripts/flatpak.sh on activation
+  home.activation = {
+    InstallFlatpaks = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      ${builtins.toPath ../../../scripts/flatpak.sh} ${desktop}
+    '';
   };
 }

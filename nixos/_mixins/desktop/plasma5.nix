@@ -18,6 +18,7 @@
 
   programs = {
     kdeconnect.enable = true;
+    dconf.enable = true;
   };
 
   services = {

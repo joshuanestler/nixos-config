@@ -1,0 +1,29 @@
+com.github.tchx84.Flatseal
+
+# Multimedia
+com.spotify.Client
+org.videolan.VLC
+org.blender.Blender
+org.gimp.GIMP
+
+# Productivity
+com.brave.Browser
+org.mozilla.Thunderbird
+com.ulduzsoft.Birdtray
+com.obsproject.Studio
+org.remmina.Remmina
+org.gnome.Boxes
+org.keepassxc.KeePassXC
+
+# Communication
+com.discordapp.Discord
+com.teamspeak.TeamSpeak
+org.signal.Signal
+io.github.mimbrero.WhatsAppDesktop
+im.riot.Riot
+
+# Gaming
+com.valvesoftware.Steam
+org.prismlauncher.PrismLauncher
+com.heroicgameslauncher.hgl
+com.usebottles.bottles
