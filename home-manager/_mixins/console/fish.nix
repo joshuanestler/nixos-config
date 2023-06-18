@@ -55,7 +55,7 @@
         # https://github.com/NixOS/nixpkgs/issues/191128#issuecomment-1246030417
         nix-hash-sha256 = "nix-hash --flat --base32 --type sha256";
         nix-gc = "sudo nix-collect-garbage --delete-older-than 14d";
-        rebuild-home = "home-manager switch -b backup --flake github:Nekanu/nixos-config";
+        rebuild-home = "home-manager switch -b backup --flake $HOME/.config/nixos";
         rebuild-host = "sudo nixos-rebuild switch --flake $HOME/.config/nixos";
         rebuild-lock = "pushd $HOME/.config/nixos && nix flake lock --recreate-lock-file && popd";
         rebuild-iso = "pushd $HOME/.config/nixos && nix build .#nixosConfigurations.iso.config.system.build.isoImage && popd";
