@@ -17,10 +17,10 @@
     fish = {
       enable = true;
       interactiveShellInit = ''
-        set fish_cursor_default block blink
+        set fish_cursor_default line blink
         set fish_cursor_insert line blink
         set fish_cursor_replace_one underscore blink
-        set fish_cursor_visual block
+        set fish_cursor_visual line
         set -U fish_color_autosuggestion brblack
         set -U fish_color_cancel -r
         set -U fish_color_command green
