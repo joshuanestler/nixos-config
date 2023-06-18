@@ -10,9 +10,11 @@
       khelpcenter
     ];
 
-    systemPackages = with pkgs.libsForQt5; [
-      lightly
-      filelight
+    systemPackages = with pkgs; [
+      libsForQt5.lightly
+      libsForQt5.filelight
+      layan-kde
+      layan-gtk-theme
     ];
   };
 
@@ -27,7 +29,11 @@
     xserver = {
       enable = true;
       displayManager = {
-        sddm.enable = true;
+        sddm = {
+          enable = true;
+          theme = "layan";
+          autoNumlock = true;
+        };
       };
 
       desktopManager = {
