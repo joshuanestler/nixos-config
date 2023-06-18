@@ -15,6 +15,7 @@
       libsForQt5.filelight
       layan-kde
       layan-gtk-theme
+      sddm-kcm
     ];
   };
 
@@ -31,7 +32,6 @@
       displayManager = {
         sddm = {
           enable = true;
-          theme = "layan";
           autoNumlock = true;
         };
       };
