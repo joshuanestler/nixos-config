@@ -65,6 +65,17 @@
           };
           modules = [ ./nixos ];
         };
+
+        vm = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs stateVersion;
+            desktop = "plasma5";
+            hostname = "vm";
+            username = "nekanu";
+            hostid = "be87d399";
+          };
+          modules = [ ./nixos ];
+        };
       };
 
       # Standalone home-manager configuration entrypoint
@@ -76,6 +87,17 @@
             inherit inputs outputs stateVersion rootPath;
             desktop = "plasma5";
             hostname = "harmony";
+            username = "nekanu";
+          };
+          modules = [ ./home-manager ];
+        };
+
+        "nekanu@vm" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+          extraSpecialArgs = {
+            inherit inputs outputs stateVersion rootPath;
+            desktop = "plasma5";
+            hostname = "vm";
             username = "nekanu";
           };
           modules = [ ./home-manager ];
