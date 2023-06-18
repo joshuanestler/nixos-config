@@ -5,14 +5,13 @@
     ../_mixins/services/pipewire.nix
   ];
 
-  services.qemuGuest.enable = true;
-
   # VM disk
   fileSystems."/" = {
     device = "/dev/disk/by-partlabel/root";
-    fsType = "btrfs";
+    fsType = "ext4";
     autoResize = true;
   };
 
   networking.useDHCP = lib.mkDefault true;
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }
