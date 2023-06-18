@@ -7,7 +7,7 @@
   ];
 
   boot.kernelParams = [ "quiet" ];
-  boot.plymouth.enable = true;
+  # boot.plymouth.enable = true;
 
   fonts = {
     fontDir.enable = true;
@@ -15,7 +15,4 @@
       cascadia-code
     ];
   };
-
-  # Accept the joypixels license
-  nixpkgs.config.joypixels.acceptLicense = true;
 }
