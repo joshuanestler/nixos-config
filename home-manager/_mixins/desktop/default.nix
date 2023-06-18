@@ -12,6 +12,7 @@
     unstable.vscode
     texlive.combined.scheme-full
     libreoffice
+    pcloud
   ];
   # Accept the joypixels license
   nixpkgs.config.joypixels.acceptLicense = true;
