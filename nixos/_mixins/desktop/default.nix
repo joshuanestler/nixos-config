@@ -3,6 +3,7 @@
     ../services/cups.nix
     ../services/flatpak.nix
     ../services/sane.nix
+    ../services/yubico.nix
     (./. + "/${desktop}.nix")
   ];
 

@@ -50,6 +50,8 @@
       autosuggestions.enable = true;
       enableBashCompletion = true;
     };
+
+    fish.enable = true;
   };
 
   security.rtkit.enable = true;
