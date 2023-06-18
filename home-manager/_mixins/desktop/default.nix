@@ -54,11 +54,5 @@
     "XTerm*locale" = false;
     "XTerm*utf8" = true;
   };
-
-  # Run ../scripts/flatpak.sh on activation
-  home.activation = {
-    InstallFlatpaks = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      ${builtins.toPath ../../../scripts/flatpak.sh} ${desktop}
-    '';
-  };
 }
+

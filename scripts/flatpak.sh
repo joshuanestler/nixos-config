@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "Installing Flatpak apps"
+
 # Add Flathub repository
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
