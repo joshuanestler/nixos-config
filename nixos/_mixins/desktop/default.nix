@@ -4,6 +4,7 @@
     ../services/flatpak.nix
     ../services/sane.nix
     ../services/yubico.nix
+    ../../../modules/pcloud.nix
     (./. + "/${desktop}.nix")
   ];
 
@@ -16,10 +17,6 @@
       cascadia-code
     ];
   };
-
-  # BSPWM
-  services.xserver.windowManager.bspwm.enable = true;
-
 
   environment.systemPackages = with pkgs; [
     pcloud
