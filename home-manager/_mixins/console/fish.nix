@@ -58,8 +58,8 @@
         rebuild-home = "home-manager switch -b backup --flake $HOME/.config/nixos";
         rebuild-host = "sudo nixos-rebuild switch --flake $HOME/.config/nixos";
         rebuild-lock = "pushd $HOME/.config/nixos && nix flake lock --recreate-lock-file && popd";
-        rebuild-iso = "pushd $HOME/.config/nixos && nix build .#nixosConfigurations.iso.config.system.build.isoImage && popd";
-        update-nixos-config = "cd $HOME/.config/nixos && git pull && cd -";
+        # rebuild-iso = "pushd $HOME/.config/nixos && nix build .#nixosConfigurations.iso.config.system.build.isoImage && popd";
+        update-nixos-config = "pushd $HOME/.config/nixos && git pull && popd";
       };
       shellAliases = {
         cat = "bat --paging=never";

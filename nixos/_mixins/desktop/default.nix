@@ -1,4 +1,4 @@
-{ desktop, pkgs, ... }: {
+{ inputs, desktop, pkgs, ... }: {
   imports = [
     ../services/cups.nix
     ../services/flatpak.nix
@@ -20,5 +20,6 @@
 
   environment.systemPackages = with pkgs; [
     pcloud
+    inputs.nix-software-center.packages.${system}.nix-software-center
   ];
 }
