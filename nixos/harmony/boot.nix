@@ -14,6 +14,11 @@
       verbose = false;
     };
 
+    # Enable TTYs
+    kernelParams = [
+      "console=tty1"
+    ];
+
     kernelModules = [
       "kvm-intel"
       "vhost_vsock"

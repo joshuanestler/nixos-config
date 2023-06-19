@@ -17,6 +17,11 @@
     ];
   };
 
+  # BSPWM
+  services.xserver.windowManager.bspwm.enable = true;
+
+
   environment.systemPackages = with pkgs; [
+    pcloud
   ];
 }

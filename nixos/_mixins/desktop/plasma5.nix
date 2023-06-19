@@ -42,7 +42,7 @@
           notoPackage = pkgs.noto-fonts;
           phononBackend = "vlc";
           runUsingSystemd = true;
-          useQtScaling = false;
+          useQtScaling = true;
         };
       };
     };

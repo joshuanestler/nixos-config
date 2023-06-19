@@ -32,6 +32,10 @@
   swapDevices =
     [{ device = "/dev/disk/by-uuid/a436904d-c048-4f70-b1e7-bfb8de7ec825"; }];
 
+  console = {
+    enable = true;
+  };
+
   hardware = {
 
     nvidia = {

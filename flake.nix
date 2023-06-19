@@ -9,6 +9,10 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
+    # Version of nixpkgs where pCloud doesn't crash
+    # See https://github.com/NixOS/nixpkgs/issues/226339
+    nixpkgs-unstable-pcloud-ok.url = "github:NixOS/nixpkgs/e3652e0735fbec227f342712f180f4f21f0594f2";
+
     # Home manager
     home-manager = {
       url = "github:nix-community/home-manager/release-23.05";
@@ -50,7 +54,7 @@
       );
 
       # Your custom packages and modifications, exported as overlays
-      overlays = import ./overlays { inherit inputs; };
+      overlays = import ./overlays { inherit nixpkgs inputs; };
 
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
@@ -65,17 +69,6 @@
           };
           modules = [ ./nixos ];
         };
-
-        vm = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs stateVersion;
-            desktop = "plasma5";
-            hostname = "vm";
-            username = "nekanu";
-            hostid = "be87d399";
-          };
-          modules = [ ./nixos ];
-        };
       };
 
       # Standalone home-manager configuration entrypoint
@@ -87,17 +80,6 @@
             inherit inputs outputs stateVersion rootPath;
             desktop = "plasma5";
             hostname = "harmony";
-            username = "nekanu";
-          };
-          modules = [ ./home-manager ];
-        };
-
-        "nekanu@vm" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-          extraSpecialArgs = {
-            inherit inputs outputs stateVersion rootPath;
-            desktop = "plasma5";
-            hostname = "vm";
             username = "nekanu";
           };
           modules = [ ./home-manager ];
