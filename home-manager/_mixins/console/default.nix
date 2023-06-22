@@ -19,6 +19,11 @@
       rustfmt # Code format Rust
       shellcheck # Code lint Shell
       shfmt # Code format Shell
+      ansible # Configuration management
+      ansible-lint
+      ansible-doctor
+      vagrant # Virtual machines
+      python3 # Python
     ];
   };
 

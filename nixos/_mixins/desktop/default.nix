@@ -21,5 +21,6 @@
   environment.systemPackages = with pkgs; [
     pcloud
     inputs.nix-software-center.packages.${system}.nix-software-center
+    timeshift
   ];
 }
