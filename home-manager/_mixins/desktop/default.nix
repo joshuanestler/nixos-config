@@ -13,6 +13,9 @@
     texlive.combined.scheme-full
     libreoffice
     nextcloud-client
+    kleopatra
+    tor-browser-bundle-bin
+    jetbrains-toolbox
   ];
   # Accept the joypixels license
   nixpkgs.config.joypixels.acceptLicense = true;
@@ -59,8 +62,7 @@
   home.file."scripts/flatpak" = {
     enable = true;
     executable = true;
-    onChange = "bash $HOME/scripts/flatpak.sh";
-    target = "scripts/flatpak.sh";
+    target = ".local/share/scripts/flatpak.sh";
     source = rootPath + "/scripts/flatpak.sh";
   };
 }

@@ -120,6 +120,21 @@
         "type": "github"
       }
     },
+    "nur": {
+      "locked": {
+        "lastModified": 1687351084,
+        "narHash": "sha256-oHqTuAcfOoZlUBKTk2ANzTW9AVLmZ1tb9P3GduVe81s=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "869ccb21c7b3d81ad06e6b01de6d1c31a39f2f9e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
@@ -127,7 +142,8 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
-        "nixpkgs-unstable-pcloud-ok": "nixpkgs-unstable-pcloud-ok"
+        "nixpkgs-unstable-pcloud-ok": "nixpkgs-unstable-pcloud-ok",
+        "nur": "nur"
       }
     },
     "utils": {

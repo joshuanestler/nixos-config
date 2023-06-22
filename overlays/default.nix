@@ -21,4 +21,12 @@
       config.allowUnfree = true;
     };
   };
+
+  # Make NUR packages available under 'pkgs.nur'
+  # nur = final: _prev: {
+  #   nur = import inputs.nur.repos.nur {
+  #     inherit inputs;
+  #     config = { allowUnfree = true; };
+  #   };
+  # };
 }

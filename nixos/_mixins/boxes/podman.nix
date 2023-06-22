@@ -5,6 +5,7 @@
     buildah
     podman-compose
     podman-tui
+    podman-desktop
   ];
   virtualisation = {
     podman = {

@@ -9,6 +9,8 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
+    nur.url = github:nix-community/NUR;
+
     # Version of nixpkgs where pCloud doesn't crash
     # See https://github.com/NixOS/nixpkgs/issues/226339
     nixpkgs-unstable-pcloud-ok.url = "github:NixOS/nixpkgs/e3652e0735fbec227f342712f180f4f21f0594f2";
