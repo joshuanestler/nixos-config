@@ -1,4 +1,4 @@
-{ config, desktop, inputs, lib, outputs, pkgs, stateVersion, username, ... }:
+{ config, desktopEnvironments, inputs, lib, outputs, pkgs, stateVersion, username, ... }:
 let
   inherit (pkgs.stdenv) isDarwin isLinux;
 in
@@ -15,7 +15,7 @@ in
     # You can also split up your configuration and import pieces of it here:
     ./_mixins/console
   ]
-  ++ lib.optional (builtins.isString desktop) ./_mixins/desktop
+  ++ lib.optional (desktopEnvironment != [ ]) ./_mixins/desktop
   ++ lib.optional (builtins.isPath (./. + "/_mixins/users/${username}")) ./_mixins/users/${username};
 
   home = {

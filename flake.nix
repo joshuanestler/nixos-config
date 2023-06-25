@@ -60,7 +60,7 @@
         harmony = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs outputs stateVersion;
-            desktop = "plasma5";
+            desktopEnvironments = [ "plasma5" "gnome" ];
             hostname = "harmony";
             username = "nekanu";
             hostid = "a69480bd";
@@ -76,7 +76,7 @@
           pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
           extraSpecialArgs = {
             inherit inputs outputs stateVersion rootPath;
-            desktop = "plasma5";
+            desktopEnvironments = [ "plasma5" "gnome" ];
             hostname = "harmony";
             username = "nekanu";
           };

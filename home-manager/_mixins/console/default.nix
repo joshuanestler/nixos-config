@@ -24,6 +24,20 @@
       ansible-doctor
       vagrant # Virtual machines
       python3 # Python
+      terraform # Infrastructure as code
+      terraform-ls
+      terraform-lsp
+      terraform-docs
+      terraform-compliance
+      terraform-inventory
+      nomad
+      nomad-autoscaler
+      nomad-pack
+      consul
+      vault
+      packer
+      jq
+      puppet-bolt
     ];
   };
 

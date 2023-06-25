@@ -1,4 +1,4 @@
-{ config, desktop, lib, pkgs, ... }:
+{ config, desktopEnvironments, lib, pkgs, ... }:
 let
   ifExists = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
 in
@@ -6,7 +6,7 @@ in
   # Only include desktop components if one is supplied.
   imports = [
     ./packages-console.nix
-  ] ++ lib.optional (builtins.isString desktop) ./packages-desktop.nix;
+  ] ++ lib.optional (desktopEnvironments != [ ]) ./packages-desktop.nix;
 
   users.users.nekanu = {
     description = "Nekanu";
