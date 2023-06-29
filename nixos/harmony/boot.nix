@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }: {
   boot = {
     consoleLogLevel = 3;
-    extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
     initrd = {
       availableKernelModules = [
         "ahci"
@@ -35,11 +34,16 @@
         useOSProber = true;
         device = "nodev";
         default = "saved";
-        gfxmodeEfi = "1920x1080";
-        gfxmodeBios = "1920x1080";
       };
 
-      timeout = 10;
+      grub2-theme = {
+        enable = true;
+        theme = "vimix";
+        footer = true;
+        screen = "1080p";
+      };
+
+      timeout = 5;
     };
   };
 }

@@ -2,6 +2,7 @@
   imports = [
     ../services/cups.nix
     ../services/flatpak.nix
+    ../services/obs.nix
     ../services/sane.nix
     ../services/yubico.nix
     ../../../modules/pcloud.nix

@@ -21,9 +21,10 @@ in
       "docker"
       "podman"
       "vboxusers"
+      "libvirtd"
     ];
     # mkpasswd -m sha-512
-    hashedPassword = "$y$j9T$ENNuzed4KTBwkim/kZdz.1$F2B.I7CWGmZOYYWBhTdHz8TmbyON7ZshktYD8/pqPE/";
+    initialHashedPassword = "$y$j9T$ENNuzed4KTBwkim/kZdz.1$F2B.I7CWGmZOYYWBhTdHz8TmbyON7ZshktYD8/pqPE/";
     isNormalUser = true;
     openssh.authorizedKeys.keys = [ ];
     packages = [ pkgs.home-manager ];

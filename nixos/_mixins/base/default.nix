@@ -25,6 +25,7 @@
     v4l-utils
     wget
     xdg-utils
+    icu # for .NET
   ];
 
   # Use passed in hostid and hostname to configure basic networking
@@ -42,14 +43,6 @@
 
   programs = {
     dconf.enable = true;
-
-    zsh = {
-      enable = true;
-      enableCompletion = true;
-      syntaxHighlighting.enable = true;
-      autosuggestions.enable = true;
-      enableBashCompletion = true;
-    };
 
     fish.enable = true;
   };

@@ -23,12 +23,15 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nix-software-center.url = "github:vlinkz/nix-software-center";
 
+    # GRUB themes
+    grub-themes.url = "github:vinceliuice/grub2-themes";
+
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
     # nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, nix-software-center, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, nixos-hardware, nix-software-center, grub-themes, ... } @ inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
@@ -60,12 +63,15 @@
         harmony = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs outputs stateVersion;
-            desktopEnvironments = [ "plasma5" "gnome" ];
+            desktopEnvironments = [ "plasma5" ];
             hostname = "harmony";
             username = "nekanu";
             hostid = "a69480bd";
           };
-          modules = [ ./nixos ];
+          modules = [
+            ./nixos
+            grub-themes.nixosModules.default
+          ];
         };
       };
 
@@ -76,7 +82,7 @@
           pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
           extraSpecialArgs = {
             inherit inputs outputs stateVersion rootPath;
-            desktopEnvironments = [ "plasma5" "gnome" ];
+            desktopEnvironments = [ "plasma5" ];
             hostname = "harmony";
             username = "nekanu";
           };

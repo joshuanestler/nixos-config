@@ -45,7 +45,6 @@
     atuin = {
       enable = true;
       enableBashIntegration = true;
-      enableZshIntegration = true;
       enableFishIntegration = true;
     };
     bat = {
@@ -59,7 +58,6 @@
     dircolors = {
       enable = true;
       enableBashIntegration = true;
-      enableZshIntegration = true;
       enableFishIntegration = true;
     };
     direnv = {
@@ -89,7 +87,6 @@
     zoxide = {
       enable = true;
       enableBashIntegration = true;
-      enableZshIntegration = true;
       enableFishIntegration = true;
     };
   };
@@ -98,7 +95,6 @@
     gpg-agent = {
       enable = true;
       enableSshSupport = true;
-      enableZshIntegration = true;
       pinentryFlavor = "qt";
     };
   };
