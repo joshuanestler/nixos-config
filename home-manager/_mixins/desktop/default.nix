@@ -1,7 +1,6 @@
-{ config, desktop, lib, pkgs, rootPath, ... }: {
-  imports = [
-    (./. + "/${desktop}.nix")
-  ];
+{ config, desktopEnvironments, lib, pkgs, rootPath, ... }: {
+  imports = [ ]
+    ++ (map (desktop: (./. + "/${desktop}.nix")) desktopEnvironments);
 
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [

@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../_mixins/services/pipewire.nix
+    ../_mixins/features/pipewire.nix
   ];
 
   # VM disk

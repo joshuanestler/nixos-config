@@ -2,8 +2,8 @@
   imports = [
     ./locale.nix
     ./nano.nix
-    ../services/fwupd.nix
-    ../services/virtualisation.nix
+    ../features/fwupd.nix
+    ../features/virtualisation.nix
   ];
 
   environment.systemPackages = with pkgs; [

@@ -33,9 +33,11 @@ flatpak install -y --user flathub im.riot.Riot
 
 # Gaming
 flatpak install -y --user flathub com.valvesoftware.Steam
+flatpak install -y --user flathub com.valvesoftware.Steam.CompatibilityTool.Boxtron
+flatpak install -y --user flathub com.valvesoftware.Steam.Utility.protontricks
+flatpak install -y --user flathub com.valvesoftware.Steam.Utility.gamescope
+flatpak install -y --user flathub org.freedesktop.Platform.VulkanLayer.MangoHud
+flatpak install -y --user flathub org.freedesktop.Platform.VulkanLayer.vkBasalt
 flatpak install -y --user flathub org.prismlauncher.PrismLauncher
 flatpak install -y --user flathub com.heroicgameslauncher.hgl
 flatpak install -y --user flathub com.usebottles.bottles
-
-
-

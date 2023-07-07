@@ -1,6 +1,6 @@
 { inputs, pkgs, ... }: {
   imports = [
-    ../services/networkmanager.nix
+    ../features/networkmanager.nix
   ];
 
   environment = {

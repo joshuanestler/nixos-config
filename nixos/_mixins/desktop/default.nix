@@ -1,10 +1,10 @@
 { inputs, desktopEnvironments, lib, pkgs, ... }: {
   imports = [
-    ../services/cups.nix
-    ../services/flatpak.nix
-    ../services/obs.nix
-    ../services/sane.nix
-    ../services/yubico.nix
+    ../features/cups.nix
+    ../features/flatpak.nix
+    ../features/obs.nix
+    ../features/sane.nix
+    ../features/yubico.nix
     ../../../modules/pcloud.nix
   ]
   ++ (map (element: (./. + "/${element}.nix")) desktopEnvironments);

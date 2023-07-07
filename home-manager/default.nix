@@ -15,7 +15,7 @@ in
     # You can also split up your configuration and import pieces of it here:
     ./_mixins/console
   ]
-  ++ lib.optional (desktopEnvironment != [ ]) ./_mixins/desktop
+  ++ lib.optional (desktopEnvironments != [ ]) ./_mixins/desktop
   ++ lib.optional (builtins.isPath (./. + "/_mixins/users/${username}")) ./_mixins/users/${username};
 
   home = {
