@@ -4,10 +4,10 @@
   imports = [
     inputs.nixos-hardware.nixosModules.common-cpu-intel
     inputs.nixos-hardware.nixosModules.common-gpu-intel
-    inputs.nixos-hardware.nixosModules.common-gpu-nvidia
+    inputs.nixos-hardware.nixosModules.common-gpu-amd
     inputs.nixos-hardware.nixosModules.common-pc
     inputs.nixos-hardware.nixosModules.common-pc-ssd
-    ../_mixins/services/pipewire.nix
+    ../_mixins/features/pipewire.nix
   ];
 
   fileSystems."/" =
@@ -37,28 +37,11 @@
   };
 
   hardware = {
-
-    nvidia = {
-      nvidiaSettings = false;
-      modesetting.enable = true;
-
-      prime = {
-        offload.enable = false;
-        intelBusId = "PCI:0:2:0";
-        nvidiaBusId = "PCI:1:0:0";
-      };
-    };
     opengl = {
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
     };
-  };
-
-  services = {
-    xserver.videoDrivers = [
-      "nvidia"
-    ];
   };
 
   networking.useDHCP = lib.mkDefault true;
