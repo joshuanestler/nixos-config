@@ -1,5 +1,9 @@
 { pkgs, ... }: {
-  environment.systemPackages = with pkgs; [
-    # Add system packages here.
-  ];
+  environment.systemPackages = with pkgs; [ ];
+
+  programs = {
+    fish.enable = true;
+
+    dconf.enable = true;
+  };
 }

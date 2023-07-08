@@ -1,8 +1,4 @@
 { inputs, pkgs, ... }: {
-  imports = [
-    ../features/networkmanager.nix
-  ];
-
   environment = {
 
     systemPackages = with pkgs; [

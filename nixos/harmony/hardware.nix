@@ -12,25 +12,37 @@
 
   fileSystems."/" =
     {
-      device = "/dev/disk/by-uuid/c439f160-7d81-4451-95ca-d5ed2e23b27e";
+      device = "/dev/disk/by-label/System";
       fsType = "btrfs";
       options = [ "subvol=@" ];
     };
 
   fileSystems."/boot" =
     {
-      device = "/dev/disk/by-uuid/BBB7-080C";
+      device = "/dev/disk/by-label/BOOT";
       fsType = "vfat";
     };
 
   fileSystems."/home" =
     {
-      device = "/dev/disk/by-uuid/96fada13-08ff-42c1-8588-faf12d73ee78";
+      device = "/dev/disk/by-label/Home";
       fsType = "btrfs";
+      mountPoint = "/home";
     };
 
-  swapDevices =
-    [{ device = "/dev/disk/by-uuid/a436904d-c048-4f70-b1e7-bfb8de7ec825"; }];
+  fileSystems."/mnt/Games3" = {
+    device = "/dev/disk/by-label/Games3";
+    fsType = "btrfs";
+    options = [
+      "exec"
+      "rw"
+      "nofail"
+    ];
+  };
+
+  swapDevices = [
+    { device = "/dev/disk/by-uuid/a436904d-c048-4f70-b1e7-bfb8de7ec825"; }
+  ];
 
   console = {
     enable = true;
@@ -43,6 +55,8 @@
       driSupport32Bit = true;
     };
   };
+
+  services.fwupd.enable = true;
 
   networking.useDHCP = lib.mkDefault true;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

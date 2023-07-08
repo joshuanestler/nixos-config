@@ -1,4 +1,4 @@
-{ config, desktopEnvironments, inputs, lib, outputs, pkgs, stateVersion, username, ... }:
+{ config, desktopEnvironments, additionalFeatures, inputs, lib, outputs, pkgs, stateVersion, username, ... }:
 let
   inherit (pkgs.stdenv) isDarwin isLinux;
 in
@@ -16,7 +16,8 @@ in
     ./_mixins/console
   ]
   ++ lib.optional (desktopEnvironments != [ ]) ./_mixins/desktop
-  ++ lib.optional (builtins.isPath (./. + "/_mixins/users/${username}")) ./_mixins/users/${username};
+  ++ lib.optional (builtins.isPath (./. + "/_mixins/users/${username}")) ./_mixins/users/${username}
+  ++ (map (feature: (./. + "/_mixins/features/${feature}.nix")) additionalFeatures);
 
   home = {
     username = username;

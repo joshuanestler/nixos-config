@@ -23,7 +23,7 @@
       "vhost_vsock"
     ];
     kernelPackages = pkgs.linuxPackages_latest;
-    supportedFilesystems = [ "btrfs" "ext4" "fat" "vfat" ];
+    supportedFilesystems = [ "btrfs" "vfat" "ntfs" ];
 
     loader = {
       efi.canTouchEfiVariables = true;
@@ -45,5 +45,7 @@
 
       timeout = 5;
     };
+
+    plymouth.enable = true;
   };
 }

@@ -64,6 +64,7 @@
           specialArgs = {
             inherit inputs outputs stateVersion;
             desktopEnvironments = [ "plasma5" ];
+            additionalFeatures = [ "gaming" ];
             hostname = "harmony";
             username = "nekanu";
             hostid = "a69480bd";
@@ -83,6 +84,7 @@
           extraSpecialArgs = {
             inherit inputs outputs stateVersion rootPath;
             desktopEnvironments = [ "plasma5" ];
+            additionalFeatures = [ "gaming" ];
             hostname = "harmony";
             username = "nekanu";
           };

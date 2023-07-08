@@ -1,7 +1,4 @@
 { inputs, pkgs, ... }: {
-  imports = [
-    ../features/networkmanager.nix
-  ];
 
   environment = {
     plasma5.excludePackages = with pkgs.libsForQt5; [
@@ -13,6 +10,8 @@
     systemPackages = with pkgs; [
       libsForQt5.lightly
       libsForQt5.filelight
+      libsForQt5.qtstyleplugin-kvantum
+      latte-dock
       layan-kde
       layan-gtk-theme
       sddm-kcm
