@@ -4,6 +4,7 @@
     fish = {
       enable = true;
       interactiveShellInit = ''
+        set fish_greeting
         set fish_cursor_default line blink
         set fish_cursor_insert line blink
         set fish_cursor_replace_one underscore blink
