@@ -21,10 +21,9 @@
     kernelModules = [
       "kvm-intel"
       "vhost_vsock"
-      "nfs-common"
     ];
     kernelPackages = pkgs.linuxPackages_latest;
-    supportedFilesystems = [ "btrfs" "vfat" "ntfs" "nfs" ];
+    supportedFilesystems = [ "btrfs" "vfat" ];
 
     loader = {
       efi.canTouchEfiVariables = true;

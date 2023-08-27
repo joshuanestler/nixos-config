@@ -5,7 +5,6 @@
     ./networking.nix
     ./packages.nix
     ./ssh.nix
-    ../features/nano.nix
-    ../features/virtualisation.nix
+    ./nano.nix
   ];
 }

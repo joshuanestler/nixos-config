@@ -6,7 +6,7 @@
     kernelParams = [ "console=ttyS0" "boot.shell_on_fail" ];
 
     kernelPackages = pkgs.linuxPackages_latest;
-    supportedFilesystems = [ "btrfs" "ext4" "fat" "vfat" ];
+    supportedFilesystems = [ "ext4" "vfat" ];
 
     loader.grub = {
       enable = true;

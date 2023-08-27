@@ -1,10 +1,5 @@
 { pkgs, ... }: {
   programs = {
-    git = {
-      userEmail = "developer.jn@mailbox.org";
-      userName = "Joshua Nestler";
-    };
-
     firefox = {
       enable = true;
       package = pkgs.wrapFirefox pkgs.firefox-unwrapped {

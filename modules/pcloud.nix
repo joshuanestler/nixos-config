@@ -17,12 +17,12 @@ let
 
   pcloud_22_11 = pkgs_22_11.pcloud.overrideAttrs (prev:
     let
-      version = "1.13.0";
-      code = "XZecm6VZIz4VKYBrUbzzhcfNW9boSfrfhgaV";
+      version = "1.14.0";
+      code = "XZpL8AVZAqfCXz5TebJ2gcvAiHi15pYFKPey";
       # Archive link's codes: https://www.pcloud.com/release-notes/linux.html
       src = pkgs.fetchzip {
         url = "https://api.pcloud.com/getpubzip?code=${code}&filename=${prev.pname}-${version}.zip";
-        hash = "sha256-eJpwoVCI96Yow7WfVs3rRwC4D1kh7x7HuMFU7YEFHCM=";
+        hash = "sha512-oeXGRAPJFw/fdhJRETosGsQiqd4HpLewtjrzkq1kETN0An518wfV9PrOo+cKYxGZ6Rn//N+OdnNMnpxfF5ZONQ==";
       };
 
       appimageContents = pkgs.appimageTools.extractType2 {

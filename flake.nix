@@ -62,12 +62,27 @@
       nixosConfigurations = {
         harmony = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs outputs stateVersion;
-            desktopEnvironments = [ "plasma5" ];
-            additionalFeatures = [ "gaming" ];
+            inherit inputs outputs stateVersion rootPath;
+            desktopEnvironments = [ "plasma5" "hyprland" ];
+            additionalFeatures = [ "gaming" "virtualisation" ];
             hostname = "harmony";
             username = "nekanu";
             hostid = "a69480bd";
+          };
+          modules = [
+            ./nixos
+            grub-themes.nixosModules.default
+          ];
+        };
+
+        opportunity = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs stateVersion rootPath;
+            desktopEnvironments = [ "gnome" ];
+            additionalFeatures = [ "virtualisation" ];
+            hostname = "opportunity";
+            username = "nekanu";
+            hostid = "2b927153";
           };
           modules = [
             ./nixos
@@ -83,7 +98,7 @@
           pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
           extraSpecialArgs = {
             inherit inputs outputs stateVersion rootPath;
-            desktopEnvironments = [ "plasma5" ];
+            desktopEnvironments = [ "plasma5" "hyprland" ];
             additionalFeatures = [ "gaming" ];
             hostname = "harmony";
             username = "nekanu";

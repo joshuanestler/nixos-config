@@ -5,4 +5,6 @@
   ];
 
   fonts.fontDir.enable = true;
+
+  console.font = "CascadiaCode";
 }

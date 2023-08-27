@@ -1,23 +1,19 @@
 { config, desktopEnvironments, lib, pkgs, rootPath, ... }: {
-  imports = [ ]
-    ++ (map (desktop: (./. + "/${desktop}.nix")) desktopEnvironments);
+  imports = [
+    ../features/pipewire.nix
+    ../features/obs.nix
+    ../features/development.nix
+  ]
+  ++ (map (desktop: (./. + "/${desktop}.nix")) desktopEnvironments);
 
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" "UbuntuMono" ]; })
-    work-sans
-    joypixels
-    ubuntu_font_family
     unstable.vscode
-    texlive.combined.scheme-full
     libreoffice
     nextcloud-client
     kleopatra
     tor-browser-bundle-bin
-    jetbrains-toolbox
   ];
-  # Accept the joypixels license
-  nixpkgs.config.joypixels.acceptLicense = true;
 
   xresources.properties = {
     "XTerm*background" = "#121214";

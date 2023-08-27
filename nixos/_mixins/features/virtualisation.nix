@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, hostname, lib, pkgs, ... }: {
   #https://nixos.wiki/wiki/Podman
 
   environment.systemPackages = with pkgs; [
@@ -20,7 +20,14 @@
     libvirtd = {
       enable = true;
     };
+
+    # virtualbox.host = {
+    #   enable = true;
+    #   enableExtensionPack = true;
+    # };
   };
+
+  nixpkgs.config.allowUnfree = true;
 
   # Required for libvirtd
   programs.dconf.enable = true;

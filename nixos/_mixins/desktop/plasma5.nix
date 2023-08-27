@@ -11,6 +11,9 @@
       libsForQt5.lightly
       libsForQt5.filelight
       libsForQt5.qtstyleplugin-kvantum
+      libsForQt5.ksshaskpass
+      libsForQt5.plasma-browser-integration
+
       latte-dock
       layan-kde
       layan-gtk-theme

@@ -4,7 +4,7 @@
   imports = [
     inputs.nixos-hardware.nixosModules.common-cpu-intel
     inputs.nixos-hardware.nixosModules.common-gpu-intel
-    inputs.nixos-hardware.nixosModules.common-gpu-amd
+    #inputs.nixos-hardware.nixosModules.common-gpu-nvidia
     inputs.nixos-hardware.nixosModules.common-pc
     inputs.nixos-hardware.nixosModules.common-pc-ssd
     ../_mixins/base/pipewire.nix
@@ -29,27 +29,6 @@
       fsType = "btrfs";
       mountPoint = "/home";
     };
-
-  fileSystems."/mnt/Games3" = {
-    device = "/dev/disk/by-label/Games3";
-    fsType = "btrfs";
-    options = [
-      "exec"
-      "rw"
-      "nofail"
-    ];
-  };
-
-  # TODO: Re-add if NAS is working
-  # fileSystems."/mnt/fortune" = {
-  #   device = "fortune.local:/mnt/main/nekanu";
-  #   fsType = "nfs";
-  #   options = [
-  #     "noexec"
-  #     "rw"
-  #     "nofail"
-  #   ];
-  # };
 
   swapDevices = [
     { device = "/dev/disk/by-uuid/a436904d-c048-4f70-b1e7-bfb8de7ec825"; }

@@ -1,12 +1,17 @@
 { inputs, desktopEnvironments, lib, pkgs, ... }: {
   imports = [
-    ../features/cups.nix
-    ../features/flatpak.nix
+    ../base/pipewire.nix
+    ../features/appimage.nix
+    ../features/printing.nix
+    ../features/multimedia.nix
+    ../features/productivity.nix
+    ../features/communication.nix
     ../features/obs.nix
     ../features/sane.nix
     ../features/yubico.nix
     ../../../modules/pcloud.nix
   ]
+  # Include all desktop environments specified in the `desktopEnvironments` list.
   ++ (map (element: (./. + "/${element}.nix")) desktopEnvironments);
 
   # boot.kernelParams = [ "quiet" ];
@@ -21,10 +26,10 @@
 
   environment.systemPackages = with pkgs; [
     pcloud
-    inputs.nix-software-center.packages.${system}.nix-software-center
+    # inputs.nix-software-center.packages.${system}.nix-software-center
     timeshift
     gparted
   ];
 
-  programs.ssh.askPassword = lib.mkForce "${pkgs.x11_ssh_askpass}/libexec/x11-ssh-askpass";
+  # programs.ssh.askPassword = lib.mkForce "${pkgs.x11_ssh_askpass}/libexec/x11-ssh-askpass";
 }

@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../_mixins/features/pipewire.nix
+    ../_mixins/base/pipewire.nix
   ];
 
   # VM disk
@@ -10,6 +10,11 @@
     device = "/dev/disk/by-partlabel/root";
     fsType = "ext4";
     autoResize = true;
+  };
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/boot";
+    fsType = "vfat";
   };
 
   networking.useDHCP = lib.mkDefault true;

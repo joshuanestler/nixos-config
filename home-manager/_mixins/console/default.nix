@@ -16,26 +16,8 @@
       nixpkgs-review # Nix code review
       nodePackages.prettier # Code format
       rclone # Terminal cloud storage client
-      rustfmt # Code format Rust
       shellcheck # Code lint Shell
       shfmt # Code format Shell
-      ansible # Configuration management
-      ansible-lint
-      ansible-doctor
-      vagrant # Virtual machines
-      python3 # Python
-      terraform # Infrastructure as code
-      terraform-ls
-      terraform-lsp
-      terraform-docs
-      terraform-compliance
-      terraform-inventory
-      nomad
-      nomad-autoscaler
-      nomad-pack
-      consul
-      vault
-      packer
       jq
       puppet-bolt
     ];
