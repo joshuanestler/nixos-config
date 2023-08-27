@@ -11,6 +11,22 @@
 
     git = {
       enable = true;
+
+      userName = "Joshua Nestler";
+      userEmail = "developer.jn@mailbox.org";
+
+      signing = {
+        key = "0x92D7059CF7BD6BEC";
+        signByDefault = true;
+      };
+
+      lfs = {
+        enable = true;
+      };
+
+      difftastic = {
+        enable = true;
+      };
     };
   };
 }
