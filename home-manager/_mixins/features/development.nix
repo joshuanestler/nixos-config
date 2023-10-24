@@ -16,9 +16,9 @@
     rustup
 
     # Java
-    jdk20
-    maven
-    gradle
+    # jdk20
+    # maven
+    # gradle
 
     # C#
     dotnet-sdk_8
@@ -43,7 +43,16 @@
     ansible-lint
     ansible-doctor
 
+    # Designing
+    plantuml
+
     # Jetbrains IDEs
     jetbrains-toolbox
   ];
+
+  # Environment variables
+  home.sessionVariables = {
+    # PlantUML
+    PLANTUML_JAR = "${pkgs.plantuml}/lib/plantuml.jar";
+  };
 }

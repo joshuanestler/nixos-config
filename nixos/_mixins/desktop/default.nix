@@ -29,6 +29,8 @@
     # inputs.nix-software-center.packages.${system}.nix-software-center
     timeshift
     gparted
+
+    protonmail-bridge
   ];
 
   # programs.ssh.askPassword = lib.mkForce "${pkgs.x11_ssh_askpass}/libexec/x11-ssh-askpass";

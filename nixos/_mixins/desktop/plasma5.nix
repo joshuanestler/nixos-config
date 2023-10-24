@@ -14,7 +14,7 @@
       libsForQt5.ksshaskpass
       libsForQt5.plasma-browser-integration
 
-      latte-dock
+      #latte-dock
       layan-kde
       layan-gtk-theme
       sddm-kcm
