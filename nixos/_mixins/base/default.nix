@@ -6,5 +6,6 @@
     ./packages.nix
     ./ssh.nix
     ./nano.nix
+    ./nordvpn.nix
   ];
 }

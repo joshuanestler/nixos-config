@@ -23,6 +23,12 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nix-software-center.url = "github:vlinkz/nix-software-center";
 
+    # Generator
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # GRUB themes
     grub-themes.url = "github:vinceliuice/grub2-themes";
 
@@ -31,7 +37,7 @@
     # nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, nix-software-center, grub-themes, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, nixos-hardware, nix-software-center, grub-themes, nur, ... } @ inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
@@ -39,6 +45,10 @@
       ];
       stateVersion = "23.05";
       rootPath = ./.;
+      nur-modules = import nur rec {
+        nurpkgs = nixpkgs.legacyPackages.x86_64-linux;
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      };
     in
     rec {
       # Your custom packages
@@ -72,13 +82,15 @@
           modules = [
             ./nixos
             grub-themes.nixosModules.default
+            nur.nixosModules.nur
+            nur-modules.repos.LuisChDev.modules.nordvpn
           ];
         };
 
         opportunity = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs outputs stateVersion rootPath;
-            desktopEnvironments = [ "gnome" ];
+            desktopEnvironments = [ "plasma5" ];
             additionalFeatures = [ "virtualisation" ];
             hostname = "opportunity";
             username = "nekanu";
@@ -87,6 +99,8 @@
           modules = [
             ./nixos
             grub-themes.nixosModules.default
+            nur.nixosModules.nur
+            nur-modules.repos.LuisChDev.modules.nordvpn
           ];
         };
       };

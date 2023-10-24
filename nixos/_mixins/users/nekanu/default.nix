@@ -16,6 +16,7 @@ in
       "users"
       "video"
       "wheel"
+      "nordvpn"
     ]
     ++ ifExists [
       "docker"
