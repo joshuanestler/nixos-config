@@ -12,6 +12,7 @@ in
   systemd.services.install-obs = {
     description = "Install OBS flatpak";
     wantedBy = [ "multi-user.target" ];
+    wants = [ "network-online.target" "flatpak-install-base.service" ];
     serviceConfig = {
       Type = "oneshot";
       ExecStart = "${flatpak.flatpakInstallCommandDefault} com.obsproject.Studio";

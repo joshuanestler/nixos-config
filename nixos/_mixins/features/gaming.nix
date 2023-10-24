@@ -33,6 +33,7 @@ in
   systemd.services.install-gaming = {
     description = "Install Gaming flatpaks";
     wantedBy = [ "multi-user.target" ];
+    wants = [ "network-online.target" "flatpak-install-base.service" ];
     serviceConfig = {
       Type = "oneshot";
       ExecStart = ''

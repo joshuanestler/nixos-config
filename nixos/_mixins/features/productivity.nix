@@ -6,6 +6,7 @@ in
   systemd.services.install-poductivity = {
     description = "Install Productivity flatpaks";
     wantedBy = [ "multi-user.target" ];
+    wants = [ "network-online.target" "flatpak-install-base.service" ];
     serviceConfig = {
       Type = "oneshot";
       ExecStart = ''

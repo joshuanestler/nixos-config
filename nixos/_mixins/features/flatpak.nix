@@ -11,6 +11,7 @@
   systemd.services.flatpak-install-base = {
     description = "Install base flatpak packages";
     wantedBy = [ "multi-user.target" ];
+    wants = [ "network-online.target" ];
     serviceConfig = {
       Type = "oneshot";
       RemainAfterExit = true;
