@@ -12,17 +12,23 @@
     ../../../modules/pcloud.nix
   ]
   # Include all desktop environments specified in the `desktopEnvironments` list.
-  ++ (map (element: (./. + "/${element}.nix")) desktopEnvironments);
-
-  # boot.kernelParams = [ "quiet" ];
-  # boot.plymouth.enable = true;
+  ++ (map (element: (./. + "/${element}")) desktopEnvironments);
 
   fonts = {
     fontDir.enable = true;
+
     fonts = with pkgs; [
+      (nerdfonts.override { fonts = [ "DroidSansMono" ]; })
+
+      # Microsoft fonts
+      corefonts
+      vistafonts
       cascadia-code
     ];
   };
+
+  boot.kernelParams = [ "quiet" ];
+  boot.plymouth.enable = true;
 
   environment.systemPackages = with pkgs; [
     pcloud
@@ -30,7 +36,7 @@
     timeshift
     gparted
 
-    protonmail-bridge
+    firefox
   ];
 
   # programs.ssh.askPassword = lib.mkForce "${pkgs.x11_ssh_askpass}/libexec/x11-ssh-askpass";

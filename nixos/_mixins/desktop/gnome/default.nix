@@ -6,7 +6,10 @@
   };
 
   programs = {
-    kdeconnect.enable = true;
+    kdeconnect = {
+      enable = true;
+      package = pkgs.gnomeExtensions.gsconnect;
+    };
     dconf.enable = true;
   };
 

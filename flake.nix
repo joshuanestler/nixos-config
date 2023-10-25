@@ -119,6 +119,18 @@
           };
           modules = [ ./home-manager ];
         };
+
+        "nekanu@opportunity" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+          extraSpecialArgs = {
+            inherit inputs outputs stateVersion rootPath;
+            desktopEnvironments = [ "plasma5" ];
+            additionalFeatures = [ ];
+            hostname = "opportunity";
+            username = "nekanu";
+          };
+          modules = [ ./home-manager ];
+        };
       };
     };
 }

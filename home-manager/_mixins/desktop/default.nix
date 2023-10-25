@@ -3,8 +3,9 @@
     ../features/pipewire.nix
     ../features/obs.nix
     ../features/development.nix
+    ../features/protonmail.nix
   ]
-  ++ (map (desktop: (./. + "/${desktop}.nix")) desktopEnvironments);
+  ++ (map (desktop: (./. + "/${desktop}")) desktopEnvironments);
 
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
@@ -52,13 +53,6 @@
     "XTerm.termName" = "xterm-256color";
     "XTerm*locale" = false;
     "XTerm*utf8" = true;
-  };
-
-  home.file."scripts/flatpak" = {
-    enable = true;
-    executable = true;
-    target = ".local/share/scripts/flatpak.sh";
-    source = rootPath + "/scripts/flatpak.sh";
   };
 }
 

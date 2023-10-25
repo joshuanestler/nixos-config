@@ -1,5 +1,5 @@
 { inputs, pkgs, ... }: {
-
+  
   environment = {
     plasma5.excludePackages = with pkgs.libsForQt5; [
       elisa
@@ -13,8 +13,8 @@
       libsForQt5.qtstyleplugin-kvantum
       libsForQt5.ksshaskpass
       libsForQt5.plasma-browser-integration
+      libsForQt5.krfb # VNC server for KDEconnect
 
-      #latte-dock
       layan-kde
       layan-gtk-theme
       sddm-kcm
