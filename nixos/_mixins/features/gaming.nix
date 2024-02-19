@@ -30,19 +30,8 @@ in
     temurin-jre-bin-17 # 1.17 +
   ];
 
-  systemd.services.install-gaming = {
-    description = "Install Gaming flatpaks";
-    wantedBy = [ "multi-user.target" ];
-    wants = [ "network-online.target" "flatpak-install-base.service" ];
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = ''
-        ${flatpak.flatpakInstallCommandDefault} \
-        org.prismlauncher.PrismLauncher \
-      '';
-
-      # TODO: Add more flatpaks
-      # 
+  services.flatpak.packages = [
+    "org.prismlauncher.PrismLauncher"
       # com.valvesoftware.Steam \
       # com.valvesoftware.Steam.CompatibilityTool.Boxtron \
       # com.valvesoftware.Steam.Utility.protontricks \
@@ -50,6 +39,5 @@ in
       # org.freedesktop.Platform.VulkanLayer.MangoHud \
       # org.freedesktop.Platform.VulkanLayer.vkBasalt \
       # com.heroicgameslauncher.hgl \
-    };
-  };
+  ];
 }

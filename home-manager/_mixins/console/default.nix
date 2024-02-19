@@ -10,7 +10,6 @@
     # https://jvns.ca/blog/2022/04/12/a-list-of-new-ish--command-line-tools/
     packages = with pkgs; [
       difftastic # Modern Unix `diff`
-      distrobox # Terminal container manager
       ffmpeg-headless # Terminal video encoder
       nixpkgs-fmt # Code format Nix
       nixpkgs-review # Nix code review
@@ -20,6 +19,7 @@
       shfmt # Code format Shell
       jq
       puppet-bolt
+      btop
     ];
   };
 
@@ -28,6 +28,7 @@
       enable = true;
       enableBashIntegration = true;
       enableFishIntegration = true;
+      enableZshIntegration = true;
     };
     bat = {
       enable = true;
@@ -41,15 +42,18 @@
       enable = true;
       enableBashIntegration = true;
       enableFishIntegration = true;
+      enableZshIntegration = true;
     };
     direnv = {
       enable = true;
       enableBashIntegration = true;
+      enableZshIntegration = true;
+
       nix-direnv = {
         enable = true;
       };
     };
-    exa = {
+    eza = {
       enable = true;
       enableAliases = true;
       icons = true;
@@ -70,6 +74,7 @@
       enable = true;
       enableBashIntegration = true;
       enableFishIntegration = true;
+      enableZshIntegration = true;
     };
   };
 

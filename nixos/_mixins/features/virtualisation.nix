@@ -7,14 +7,24 @@
     podman-tui
     podman-desktop
 
+    docker-compose
+
     virt-manager
+
+    distrobox
   ];
 
   virtualisation = {
+    docker = {
+      enable = true;
+      enableOnBoot = true;
+    };
+
     podman = {
       #defaultNetwork.settings.dns_enabled = true;
-      dockerCompat = true;
-      enable = true;
+      # dockerSocket.enable = true;
+      # dockerCompat = true;
+      # enable = true;
     };
 
     libvirtd = {
@@ -25,6 +35,10 @@
     #   enable = true;
     #   enableExtensionPack = true;
     # };
+
+    waydroid = {
+      enable = true;
+    };
   };
 
   nixpkgs.config.allowUnfree = true;

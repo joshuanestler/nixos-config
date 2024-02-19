@@ -24,7 +24,7 @@
       "nfs-common"
     ];
     kernelPackages = pkgs.linuxPackages_latest;
-    supportedFilesystems = [ "btrfs" "vfat" "ntfs" "nfs" ];
+    supportedFilesystems = [ "btrfs" "vfat" "ntfs" "nfs" "exfat" ];
 
     loader = {
       efi.canTouchEfiVariables = true;

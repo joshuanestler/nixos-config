@@ -3,5 +3,7 @@
   imports = [
     ./plasma5.nix
     ./config.nix
+    ./dolphin.nix
+    ./spectacle.nix
   ];
 }

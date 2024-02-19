@@ -62,5 +62,11 @@
     };
   };
 
+  system.autoUpgrade = {
+    enable = true;
+    dates = "daily";
+    flake = "github:joshuanestler/nixos-config";
+  };
+
   system.stateVersion = stateVersion;
 }

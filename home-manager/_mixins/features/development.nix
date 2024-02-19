@@ -21,7 +21,7 @@
     # gradle
 
     # C#
-    dotnet-sdk_8
+    dotnet-sdk
 
     # HashiCorp toolchain
     vagrant # Virtual machines

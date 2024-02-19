@@ -40,6 +40,8 @@
     ];
   };
 
+  boot.initrd.luks.devices."luks-c74aec2a-b836-4b0c-91e2-8247e09b3a03".device = "/dev/disk/by-uuid/c74aec2a-b836-4b0c-91e2-8247e09b3a03";
+
   # TODO: Re-add if NAS is working
   # fileSystems."/mnt/fortune" = {
   #   device = "fortune.local:/mnt/main/nekanu";
@@ -50,10 +52,6 @@
   #     "nofail"
   #   ];
   # };
-
-  swapDevices = [
-    { device = "/dev/disk/by-uuid/a436904d-c048-4f70-b1e7-bfb8de7ec825"; }
-  ];
 
   console = {
     enable = true;

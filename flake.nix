@@ -1,9 +1,12 @@
 {
   description = "Nekanu's NixOS configuration";
 
+
+
   inputs = {
+
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     # You can access packages and modules from different nixpkgs revs
     # at the same time. Here's an working example:
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -17,11 +20,17 @@
 
     # Home manager
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.05";
+      url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nix-software-center.url = "github:vlinkz/nix-software-center";
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.2.0";
+
+    plasma-manager.url = "github:pjones/plasma-manager";
+    plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
+    plasma-manager.inputs.home-manager.follows = "home-manager";
 
     # Generator
     nixos-generators = {
@@ -37,13 +46,13 @@
     # nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, nix-software-center, grub-themes, nur, ... } @ inputs:
+  outputs = { self, nixpkgs, nixos-generators, home-manager, nixos-hardware, nix-software-center, nix-flatpak, grub-themes, plasma-manager, nur, ... } @ inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
         "x86_64-linux"
       ];
-      stateVersion = "23.05";
+      stateVersion = "23.11";
       rootPath = ./.;
       nur-modules = import nur rec {
         nurpkgs = nixpkgs.legacyPackages.x86_64-linux;
@@ -84,6 +93,7 @@
             grub-themes.nixosModules.default
             nur.nixosModules.nur
             nur-modules.repos.LuisChDev.modules.nordvpn
+            nix-flatpak.nixosModules.nix-flatpak
           ];
         };
 
@@ -101,6 +111,7 @@
             grub-themes.nixosModules.default
             nur.nixosModules.nur
             nur-modules.repos.LuisChDev.modules.nordvpn
+            nix-flatpak.nixosModules.nix-flatpak
           ];
         };
       };
@@ -117,7 +128,10 @@
             hostname = "harmony";
             username = "nekanu";
           };
-          modules = [ ./home-manager ];
+          modules = [ 
+            ./home-manager
+            plasma-manager.homeManagerModules.plasma-manager
+          ];
         };
 
         "nekanu@opportunity" = home-manager.lib.homeManagerConfiguration {
@@ -129,7 +143,10 @@
             hostname = "opportunity";
             username = "nekanu";
           };
-          modules = [ ./home-manager ];
+          modules = [ 
+            ./home-manager
+            plasma-manager.homeManagerModules.plasma-manager
+          ];
         };
       };
     };

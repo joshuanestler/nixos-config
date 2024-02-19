@@ -8,14 +8,7 @@ in
 
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
 
-  # Install OBS flatpak via systemd one-shot service
-  systemd.services.install-obs = {
-    description = "Install OBS flatpak";
-    wantedBy = [ "multi-user.target" ];
-    wants = [ "network-online.target" "flatpak-install-base.service" ];
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = "${flatpak.flatpakInstallCommandDefault} com.obsproject.Studio";
-    };
-  };
+  services.flatpak.packages = [
+    "com.obsproject.Studio"
+  ];
 }

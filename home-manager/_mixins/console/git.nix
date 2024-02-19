@@ -15,10 +15,11 @@
       userName = "Joshua Nestler";
       userEmail = "developer.jn@mailbox.org";
 
-      signing = {
-        key = "0x92D7059CF7BD6BEC";
-        signByDefault = true;
-      };
+      # extraConfig = {
+      #   commit.gpgsign = true;
+      #   gpg.format = "ssh";
+      #   user.signingkey = "SHA256:tka8jPXlGneuMaQQ8EWCDWJ/aVfMlc3iC1MrX1f4+Jo";
+      # };
 
       lfs = {
         enable = true;
