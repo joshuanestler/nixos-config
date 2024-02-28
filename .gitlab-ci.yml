@@ -10,7 +10,7 @@ flake-check:
     - if: $CI_COMMIT_BRANCH == "main"
   image: nixos/nix:latest
   script:
-    - nix flake check
+    - nix flake check --extra-experimental-features 'nix-command flakes'
 
 # Run nix flake update to update the flake.lock file
 # Run this job only on scheduled pipeline runs and manual triggers
@@ -21,7 +21,7 @@ flake-update:
     - if: $CI_COMMIT_BRANCH == "main"
     - if: $CI_PIPELINE_SOURCE == "schedule" || $CI_PIPELINE_SOURCE == "web"
   script:
-    - nix flake update
+    - nix flake update --extra-experimental-features 'nix-command flakes'
 
     # Configure git
     - git config --global user.email "nix-update.development@nekanu.com"
