@@ -19,13 +19,16 @@ flake-update:
   image: nixos/nix:latest
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
+      when: manual
     - if: $CI_PIPELINE_SOURCE == "schedule" || $CI_PIPELINE_SOURCE == "web"
+      when: always
   script:
     - nix flake update --extra-experimental-features 'nix-command flakes'
 
     # Configure git
     - git config --global user.email "nix-update.development@nekanu.com"
     - git config --global user.name "Nix-Update-Bot"
+    - git remote set-url --push origin "https://$TOKEN_NAME:$ACCESS_TOKEN@gitlab.com/$CI_PROJECT_PATH.git"
 
     # Commit the updated flake.lock file
     - git add flake.lock
