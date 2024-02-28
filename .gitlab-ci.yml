@@ -1,0 +1,33 @@
+stages:
+  - test
+  - build
+
+# Run nix flake check to ensure that the flake is valid
+flake-check:
+  stage: test
+  # Run this job only on commits to main
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+  image: nixos/nix:latest
+  script:
+    - nix flake check
+
+# Run nix flake update to update the flake.lock file
+# Run this job only on scheduled pipeline runs and manual triggers
+flake-update:
+  stage: build
+  image: nixos/nix:latest
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+    - if: $CI_PIPELINE_SOURCE == "schedule" || $CI_PIPELINE_SOURCE == "web"
+  script:
+    - nix flake update
+
+    # Configure git
+    - git config --global user.email "nix-update.development@nekanu.com"
+    - git config --global user.name "Nix-Update-Bot"
+
+    # Commit the updated flake.lock file
+    - git add flake.lock
+    - git commit -m "Update flake.lock"
+    - git push origin HEAD:main -o ci.skip
